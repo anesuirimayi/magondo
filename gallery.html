@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Image Selection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      text-align: center;
+    }
+
+    .button-container a {
+      text-decoration: none;
+      padding: 1rem 2rem;
+      background-color: #f4c430;
+      color: #111;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .button-container a:hover {
+      background-color: #ffe88a;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="button-container">
+    <a href="2021.html">2021 Images</a>
+    <a href="2024.html">2024 Images</a>
+    <a href="2025.html">2025 Images</a>
+    <a href="more.html" target="_blank">Other Images</a>
+    <a href="index.html">Back to Home</a>
+  </div>
+</body>
+</html>

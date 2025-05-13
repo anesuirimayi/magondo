@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Irimayi Magondo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <h1>Irimayi Magondo</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="familytree.html">Family Tree</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Preserving Our Legacy</h2>
+    <p>One New Year at a Time.</p>
+    <a href="gallery.html"><button onclick="document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' })">Enter Gallery</button></a>
+  </section>
+
+ 
+  <!-- Section 2: Intro -->
+<section style="text-align: center; padding: 3rem 1rem; color: #fff;">
+  <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem;">Welcome</h2>
+  <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto; color: #ccc;">
+    This is a digital home for our legacy. Here, we preserve the laughter, love, and memories that define our family, from generation to generation.
+  </p>
+</section>
+
+<div class="fade-slideshow">
+  <img src="images/f5.jpg" class="active" alt="Memory 1">
+  <img src="images/2024/(9).jpg" alt="Memory 2">
+  <img src="images/f1.jpg" alt="Memory 3">
+  <img src="images/f2.jpg" alt="Memory 4">
+  <img src="images/f3.jpg" alt="Memory 5">
+  <img src="images/f4.jpg" alt="Memory 6">
+  <img src="images/f6.jpg" alt="Memory 7">
+  <img src="images/f7.jpg" alt="Memory 8">
+  <img src="images/f8.jpg" alt="Memory 9">
+  <img src="images/f9.jpg" alt="Memory 10">
+  <div class="slideshow-caption">Highlights.....</div>
+</div>
+  
+  <section class="about" id="about">
+    <h2>About Our Family</h2>
+    <p>
+      The Irimayi Magondo family gathers every New Year to celebrate life, love, and laughter. 
+      This site is our time capsule, preserving those unforgettable moments across generations. 
+      Whether you're looking to relive cherished memories or see how far we’ve come, you’re in the right place.
+    </p>
+  </section>
+  
+  
+   <section class="years" id="gallery">
+   
+        <div class="year-card">
+      <img src="images/2025/top6.jpg" alt="NY2021" />
+      <h3>New Year 2025</h3>
+      <a href="2025.html">View Photos</a>
+    </div>
+      
+      <div class="year-card">
+      <img src="images/2024/top2.jpg" alt="NY2024" />
+      <h3>New Year 2024</h3>
+      <a href="2024.html">View Photos</a>
+       </div>
+      
+       <div class="year-card">
+     <img src="images/2021/(138).jpg" alt="NY2021" />
+      <h3>New Year 2021</h3>
+      <a href="2021.html">View Photos</a>
+       </div>      
+  </section>
+
+  
+
+  <footer>
+    Built with love by Anesu Praise | © 2025 Irimayi Magondo
+  </footer>
+
+  
+  
+  
+  
+  <script>
+  const slides = document.querySelectorAll(".fade-slideshow img");
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+  }, 4000); // 4 seconds per image
+</script>
+</body>
+</html>

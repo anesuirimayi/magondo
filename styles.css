@@ -1,0 +1,223 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #f9f9f9;
+      background-color: #111;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #ccc;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('images/2021/(142).jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero h2 {
+      position: relative;
+      font-size: 2.8rem;
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      position: relative;
+      font-size: 1.2rem;
+      color: #e0e0e0;
+      margin-bottom: 2rem;
+    }
+
+    .hero button {
+      position: relative;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border: none;
+      background-color: #f4c430;
+      color: #111;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .hero button:hover {
+      background-color: #ffe88a;
+      transform: scale(1.05);
+    }
+
+    .years {
+      padding: 4rem 2rem;
+      background: #1b1b1b;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .year-card {
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .year-card:hover {
+      transform: scale(1.03);
+    }
+
+    .year-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      filter: brightness(0.85);
+    }
+
+    .year-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      padding: 1rem;
+      color: #f4c430;
+    }
+
+    .year-card a {
+      display: block;
+      text-align: center;
+      margin: 0 1rem 1rem;
+      padding: 0.6rem;
+      background-color: #f4c430;
+      color: #111;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .year-card a:hover {
+      background-color: #ffe88a;
+    }
+
+    .about {
+      padding: 3rem 2rem;
+      background: #111;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      background: #000;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+
+
+
+
+.fade-slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 300px;
+    margin: 3rem auto;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  }
+
+  .fade-slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+  }
+
+  .fade-slideshow img.active {
+    opacity: 1;
+  }
+
+  .slideshow-caption {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+  }
