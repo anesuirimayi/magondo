@@ -6,18 +6,120 @@
   <title>Irimayi Magondo</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet">
+
+<style> 
+
+.section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .slideshow {
+      display: flex;
+      overflow-x: auto;
+      gap: 15px;
+      scroll-snap-type: x mandatory;
+      margin: 30px 0;
+    }
+    .slideshow img {
+      height: 300px;
+      border-radius: 10px;
+      scroll-snap-align: center;
+    }
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background-color: #010101;
+  position: relative;
+}
+
+header h1 {
+  font-size: 24px;
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #777;
+}
+
+.menu-toggle {
+  display: none; /* Always visible */
+  background: none;
+  color: orange; /* You can change this depending on background */
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: orange;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 45px;
+    padding: 15px 25px;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  nav.active {
+    display: flex;
+  }
+}
+
+
+
+ </style>
 </head>
 <body>
 
   <header>
-    <h1>Irimayi Magondo</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="familytree.html">Family Tree</a>
-      <a href="about.html">About</a>
-    </nav>
-  </header>
+  <h1>Irimayi Magondo</h1>
+  <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="familytree.html">Family Tree</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
 
   <section class="hero">
     <h2>Preserving Our Legacy</h2>
@@ -34,19 +136,22 @@
   </p>
 </section>
 
-<div class="fade-slideshow">
-  <img src="images/f5.jpg" class="active" alt="Memory 1">
-  <img src="images/2024/(9).jpg" alt="Memory 2">
-  <img src="images/f1.jpg" alt="Memory 3">
-  <img src="images/f2.jpg" alt="Memory 4">
-  <img src="images/f3.jpg" alt="Memory 5">
-  <img src="images/f4.jpg" alt="Memory 6">
-  <img src="images/f6.jpg" alt="Memory 7">
-  <img src="images/f7.jpg" alt="Memory 8">
-  <img src="images/f8.jpg" alt="Memory 9">
-  <img src="images/f9.jpg" alt="Memory 10">
-  <div class="slideshow-caption">Highlights.....</div>
-</div>
+
+
+<section class="section">
+    <h2><i class="fas fa-images icons"></i>Family Slideshow</h2>
+    <div class="slideshow">
+      <img src="images/f1.jpg" alt="Slideshow Image 1">
+      <img src="images/f2.jpg" alt="Slideshow Image 2">
+      <img src="images/f3.jpg" alt="Slideshow Image 3">
+      <img src="images/f4.jpg" alt="Slideshow Image 4">
+      <img src="images/f5.jpg" alt="Slideshow Image 5">
+      <img src="images/f6.jpg" alt="Slideshow Image 6">
+      <img src="images/f7.jpg" alt="Slideshow Image 7">
+      <img src="images/f9.jpg" alt="Slideshow Image 7">
+    </div>
+  </section>
+
   
   <section class="about" id="about">
     <h2>About Our Family</h2>
@@ -87,7 +192,19 @@
 
   
   
-  
+ 
+
+
+<script>
+  const menuBtn = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
+
+ 
   
   <script>
   const slides = document.querySelectorAll(".fade-slideshow img");
