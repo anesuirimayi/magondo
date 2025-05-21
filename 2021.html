@@ -1,58 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>New Year 2021</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      background-color: #111;
-      font-family: 'Playfair Display', serif;
-      color: #fff;
-    }
-
-    header {
-      padding: 1.5rem;
-      text-align: center;
-      background-color: #1a1a1a;
-      font-size: 2rem;
-      color: #f4c430;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .top-images {
+      font-family: sans-serif;
+       background: url('images/1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* For Safari support */
+}
+    .gallery {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-bottom: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      padding: 20px;
     }
-
-    .top-images img {
+    .gallery img {
       width: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.1);
-    }
-
-    .grid-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
-    .grid-gallery img {
-      width: 100%;
+      height: 200px;
       object-fit: cover;
       border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+    #viewer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+      z-index: 1000;
+    }
+    #viewer img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 10px;
+    }
+    #closeBtn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+    .load-more {
+      text-align: center;
+      margin: 20px;
+    }
+    .load-more button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background: #333;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
-    .download-section {
+.download-section {
       margin: 4rem 0 2rem;
       text-align: center;
     }
@@ -71,114 +94,212 @@
       background-color: #ffe95c;
     }
 
-    .back-home {
-      display: block;
-      margin-top: 2rem;
-      text-align: center;
-      color: #888;
-      font-size: 0.9rem;
-      text-decoration: none;
-    }
-  
-  .home-btn {
+header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  background-color: #f4c430;
-  color: #111;
-  padding: 5px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-  transition: background 0.3s;
+  padding: 15px 25px;
+  background-color: #010101;
+  position: relative;
 }
 
-.home-btn:hover {
-  background-color: #ffe95c;
+header h1 {
+  font-size: 24px;
+  color: #fff;
 }
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #777;
+}
+
+.menu-toggle {
+  display: none; /* Always visible */
+  background: none;
+  color: orange; /* You can change this depending on background */
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: orange;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 45px;
+    padding: 15px 25px;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  nav.active {
+    display: flex;
+  }
+}
+
   </style>
 </head>
 <body>
 
-<header>New Year 2021 Memories</header>
+<header>
+  <h1>Irimayi Magondo</h1>
+  <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="familytree.html">Family Tree</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
 
-  <a href="index.html" class="home-btn">Home Page</a>
-  
-<div class="container">
-  <!-- Top 10 Featured Images -->
-  <div class="top-images">
-    <img src="images/2021/top1.jpg" alt="Family Photo 1">
-    <img src="images/2021/top2.jpg" alt="Family Photo 2">
-    <img src="images/2021/top3.jpg" alt="Family Photo 3">
-    <img src="images/2021/top4.jpg" alt="Family Photo 4">
-    <img src="images/2021/top5.jpg" alt="Family Photo 5">
-    <img src="images/2021/top6.jpg" alt="Family Photo 6">
-    <img src="images/2021/top7.jpg" alt="Family Photo 7">
-    <img src="images/2021/top8.jpg" alt="Family Photo 8">
-    <img src="images/2021/top9.jpg" alt="Family Photo 9">
-    <img src="images/2021/top10.jpg" alt="Family Photo 10">
+  <div class="gallery" id="gallery"></div>
+
+  <div class="load-more">
+    <button onclick="loadMore()">Load More</button>
   </div>
 
-  <!-- Remaining 40 Images -->
-  <div class="grid-gallery">
-    <img src="images/2021/(112).jpg" alt="Family Photo 1">
-    <img src="images/2021/(103).jpg" alt="Family Photo 2">
-    <img src="images/2021/(107).jpg" alt="Family Photo 3">
-    <img src="images/2021/(109).jpg" alt="Family Photo 4">
-    <img src="images/2021/(115).jpg" alt="Family Photo 5">
-    <img src="images/2021/(1).jpg" alt="Family Photo 6">
-    <img src="images/2021/(117).jpg" alt="Family Photo 7">
-    <img src="images/2021/(120).jpg" alt="Family Photo 8">
-    <img src="images/2021/(121).jpg" alt="Family Photo 9">
-    <img src="images/2021/(126).jpg" alt="Family Photo 10">
-    <img src="images/2021/(127).jpg" alt="Family Photo 1">
-    <img src="images/2021/(129).jpg" alt="Family Photo 2">
-    <img src="images/2021/(130).jpg" alt="Family Photo 3">
-    <img src="images/2021/(133).jpg" alt="Family Photo 4">
-    <img src="images/2021/(134).jpg" alt="Family Photo 5">
-    <img src="images/2021/(137).jpg" alt="Family Photo 6">
-    <img src="images/2021/(138).jpg" alt="Family Photo 7">
-    <img src="images/2021/(140).jpg" alt="Family Photo 8">
-    <img src="images/2021/(142).jpg" alt="Family Photo 9">
-    <img src="images/2021/(146).jpg" alt="Family Photo 10">
- <img src="images/2021/(147).jpg" alt="Family Photo 1">
-    <img src="images/2021/(148).jpg" alt="Family Photo 2">
-    <img src="images/2021/(149).jpg" alt="Family Photo 3">
-    <img src="images/2021/(151).jpg" alt="Family Photo 4">
-    <img src="images/2021/(152).jpg" alt="Family Photo 5">
-    <img src="images/2021/(154).jpg" alt="Family Photo 6">
-    <img src="images/2021/(155).jpg" alt="Family Photo 7">
-    <img src="images/2021/(160).jpg" alt="Family Photo 8">
-    <img src="images/2021/(161).jpg" alt="Family Photo 9">
-    <img src="images/2021/(164).jpg" alt="Family Photo 10"> 
-        <img src="images/2021/(167).jpg" alt="Family Photo 10">
-    <img src="images/2021/(168).jpg" alt="Family Photo 1">
-    <img src="images/2021/(169).jpg" alt="Family Photo 2">
-    <img src="images/2021/(172).jpg" alt="Family Photo 3">
-    <img src="images/2021/(173).jpg" alt="Family Photo 4">
-    <img src="images/2021/(177).jpg" alt="Family Photo 5">
-    <img src="images/2021/(178).jpg" alt="Family Photo 6">
-    <img src="images/2021/(138).jpg" alt="Family Photo 7">
-    <img src="images/2021/(180).jpg" alt="Family Photo 8">
-    <img src="images/2021/(142).jpg" alt="Family Photo 9">
-    <img src="images/2021/(22).jpg" alt="Family Photo 10">
- <img src="images/2021/(36).jpg" alt="Family Photo 1">
-    <img src="images/2021/(50).jpg" alt="Family Photo 2">
-    <img src="images/2021/(56).jpg" alt="Family Photo 3">
-    <img src="images/2021/(62).jpg" alt="Family Photo 4">
-    <img src="images/2021/(64).jpg" alt="Family Photo 5">
-    <img src="images/2021/(69).jpg" alt="Family Photo 6">
-    <img src="images/2021/(74).jpg" alt="Family Photo 7">
-    <img src="images/2021/(98).jpg" alt="Family Photo 8">
-    <img src="images/2021/(99).jpg" alt="Family Photo 9">
+  <div id="viewer">
+    <span id="closeBtn" onclick="closeViewer()">&times;</span>
+    <img id="fullImage" src="" />
+  </div>
 
-   </div>
 
   <!-- Download Zip Button -->
   <div class="download-section">
     <a href="https://www.mediafire.com/file/mkie3qkfc4n64vh/2021.rar/file" class="download-btn" target="_blank">Download Full NY2021 Album (ZIP)</a>
-    <a href="index.html" class="back-home">Back to Home</a>
   </div>
 </div>
+
+
+  <script>
+    const gallery = document.getElementById("gallery");
+    const fullImage = document.getElementById("fullImage");
+    const viewer = document.getElementById("viewer");
+
+    let currentIndex = 0;
+    const batchSize = 8;
+
+    // Dummy list of image URLs - replace with your own
+    const images = [
+  "images/2021/(112).jpg",
+  "images/2021/(103).jpg",
+  "images/2021/(107).jpg",
+  "images/2021/(109).jpg",
+  "images/2021/(115).jpg",
+  "images/2021/(1).jpg",
+  "images/2021/(117).jpg",
+  "images/2021/(120).jpg",
+  "images/2021/(121).jpg",
+  "images/2021/(126).jpg",
+  "images/2021/(127).jpg",
+  "images/2021/(129).jpg",
+  "images/2021/(130).jpg",
+  "images/2021/(133).jpg",
+  "images/2021/(134).jpg",
+  "images/2021/(137).jpg",
+  "images/2021/(138).jpg",
+  "images/2021/(140).jpg",
+  "images/2021/(142).jpg",
+  "images/2021/(146).jpg",
+  "images/2021/(147).jpg",
+  "images/2021/(148).jpg",
+  "images/2021/(149).jpg",
+  "images/2021/(151).jpg",
+  "images/2021/(152).jpg",
+  "images/2021/(154).jpg",
+  "images/2021/(155).jpg",
+  "images/2021/(160).jpg",
+  "images/2021/(161).jpg",
+  "images/2021/(164).jpg",
+  "images/2021/(167).jpg",
+  "images/2021/(168).jpg",
+  "images/2021/(169).jpg",
+  "images/2021/(172).jpg",
+  "images/2021/(173).jpg",
+  "images/2021/(177).jpg",
+  "images/2021/(178).jpg",
+  "images/2021/(180).jpg",
+  "images/2021/(22).jpg",
+  "images/2021/(36).jpg",
+  "images/2021/(50).jpg",
+  "images/2021/(56).jpg",
+  "images/2021/(62).jpg",
+  "images/2021/(64).jpg",
+  "images/2021/(69).jpg",
+  "images/2021/(74).jpg",
+  "images/2021/(98).jpg",
+  "images/2021/(99).jpg"
+];
+
+
+    function loadMore() {
+      const nextBatch = images.slice(currentIndex, currentIndex + batchSize);
+      nextBatch.forEach((src) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.onclick = () => openViewer(src);
+        gallery.appendChild(img);
+      });
+      currentIndex += batchSize;
+      if (currentIndex >= images.length) {
+        document.querySelector(".load-more").style.display = "none";
+      }
+    }
+
+    function openViewer(src) {
+      fullImage.src = src;
+      viewer.style.display = "flex";
+    }
+
+    function closeViewer() {
+      viewer.style.display = "none";
+    }
+
+    // Load initial batch
+    loadMore();
+  </script>
+
+<script>
+  const menuBtn = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+</script>
+
+  <script>
+  const slides = document.querySelectorAll(".fade-slideshow img");
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove("active");
+    current = (current + 1) % slides.length;
+    slides[current].classList.add("active");
+  }, 4000); // 4 seconds per image
+</script>
 
 </body>
 </html>
